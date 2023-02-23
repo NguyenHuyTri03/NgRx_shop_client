@@ -12,15 +12,16 @@ export class ItemEffects {
     getAllItems$ = createEffect(
         () => this.action$.pipe(
             ofType(ItemActions.getAllItems),
-            switchMap((action) => {
+            switchMap(() => {
                 return this.itemService.getAllItems();
             }),
-            map((response) => {
-                return ItemActions.getAllItemsSuccess({ item: <Array<ItemModel>>response })
+            map((data) => {
+                // console.log(data);
+                return ItemActions.getAllItemsSuccess({ item: <Array<ItemModel>>data})
             }),
-            catchError((errors) => {
-                return of(ItemActions.getAllItemsFailure({ error: errors.message}) );
-            }),
+            catchError( (error) => {
+                return of(ItemActions.getAllItemsFailure( {error: error.message} ));
+            })
         )
     );
 }

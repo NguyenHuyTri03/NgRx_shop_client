@@ -8,8 +8,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 
-import { itemReducer } from '../NgRx/reducers/item.reducer';
+import { ItemReducer } from '../NgRx/reducers/item.reducer';
 import { ItemEffects } from '../NgRx/effects/item.effect';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,13 @@ import { ItemEffects } from '../NgRx/effects/item.effect';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({
-      itemReducer: itemReducer,
+      item: ItemReducer,
     }, {}),
     EffectsModule.forRoot([
       ItemEffects
     ]),
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

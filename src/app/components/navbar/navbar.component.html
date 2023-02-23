@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<div class="navBar">
+    <div class="pageDiv">
+        <button class="pageBtn" id="homeBtn" [routerLink]="['home']">HOME</button>
+    </div>
+    <button class="pageBtn" id="aboutBtn">ABOUT</button>
+
+    <div class="titleDiv">
+        <h1 id="title" (click)="toHome()">Tri's Store</h1>
+    </div>
+
+    <div class="accDiv">
+        <div ngbDropdown>
+            <button id="loginBtn" *ngIf="isEnabled" [routerLink]="['login']">LOGIN</button>
+            <button id="accDropDown" *ngIf="!isEnabled" ngbDropdownToggle>NguyenHuyTri</button>
+            <div ngbDropdownMenu="accDropDown" class="dropMenu">
+                <button id="logoutBtn">LOGOUT</button>
+            </div>
+        </div>
+    </div>
+</div>

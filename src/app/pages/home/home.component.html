@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="mainDiv">
+    <div class="mainItemDiv">
+        <div class="itemTitleDiv">
+            <h2 class="itemTitle" id="idTitle">ID</h2>
+            <h2 class="itemTitle" id="nameTitle">Name</h2>
+            <h2 class="itemTitle" id="desTitle">Description</h2>
+        </div>
+        <div class="itemContainer">
+            <div class="itemDiv" *ngFor="let item of (items$ | async)?.item">
+                <div class="itemInfoDiv">
+                    <p class="itemInfo" id="idInfo">{{item.id}}</p>
+                    <p class="itemInfo" id="nameInfo">{{item.name}}</p>
+                    <p class="itemInfo" id="desInfo">{{item.description}}</p>
+                    <p class="itemInfo" id="deleteInfo" (click)="delItem()">X</p>
+                </div>
+            </div>
+        </div>
+        <div class="itemAddDiv">
+            <input class="itemAdd" id="idAdd" type="text" placeholder="Item ID">
+            <input class="itemAdd" id="nameAdd" type="text" placeholder="Item Name">
+            <input class="itemAdd" id="desAdd" type="text" placeholder="Item Description">
+            <button class="itemAdd" id="btnAdd" (click)="addItem()">add item</button>
+        </div>
+    </div>
+</div>
+
